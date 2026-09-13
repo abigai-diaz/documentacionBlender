@@ -72,6 +72,94 @@
 <p>When disabled, only the shortcut assignments that have been modified will be exported. This exported file may be thought of as a “keymap delta” instead of a full export.</p>
 
 <p>When enabled, the entire keymap is written.</p>
+
+<h2>Keymap Customization</h2>
+<h3>Keys</h3>
+<h4>Available Keys</h4>
+<p>When customizing keymaps it’s useful to use keys which won’t conflict with Blender’s default keymap.</p>
+
+<p>Here are keys which aren’t used and aren’t likely to be used in the future.</p>
+
+<h5>F-Keys (F5 - F8)</h5>
+<p>These F-keys (including modifier combination) have been intentionally kept free for users to bind their own keys to.</p>
+
+<h6>OSKey (also known as the Windows-Key, Cmd or Super)</h6>
+<p>Blender doesn’t use this key for any bindings.</p>
+
+<p>macOS is an exception, where Cmd replaces Ctrl except in cases it would conflict with the system’s key bindings.</p>
+
+<h6>Hyper is a modifier available on Wayland and X11</h6>
+<p>Blender doesn’t use this key for any bindings.</p>
+
+<p>Note that this modifier typically needs to be configured, see: !136340 for details.</p>
+
+<h6>Modifier Double Click</h6>
+<p>Binding modifier keys as primary keys is supported, to avoid conflicts with regular usage you can bind them to double click.</p>
+
+<h3>Multi-Action Keys</h3>
+<h4>Click/Drag</h4>
+<p>It’s possible to configure a single key to perform multiple operations using Click event instead of Press. Then you may bind Drag to a separate action.</p>
+
+<p>This is useful for mixing actions where one uses a drag event, e.g: Toggle a setting using with Tab, drag to open a pie menu showing all options related to the setting.</p>
+
+<p>This is used in the default keymap in the 3D Viewport, Alt-MMB dragging in different directions rotates the view.</p>
+
+<h3>Common Operations</h3>
+<p>This section lists useful generic operations which can be used.</p>
+
+<h4>Key Bindings for Pop-Ups</h4>
+<p>Menus and panels can be assigned key shortcuts, even if they’re only accessible from submenus elsewhere.</p>
+
+<h5>Open a Pop-up Menu (wm.call_menu)</h5>
+<p>Open any menu on key press.</p>
+
+<h5>Open a Pie Menu (wm.call_menu_pie)</h5>
+<p>Open any pie menu on key press.</p>
+
+<h5>Open a Panel (wm.call_panel)</h5>
+<p>Open a pop-up panel (also known as a pop-over).</p>
+
+<h4>Menu & Panel Identifiers</h4>
+<p>To find the name of a menu, enable the preference Interface ‣ Display ‣ Python Tooltips.</p>
+
+<p>Then hover the cursor over the popover button or menu item. For submenus you will need to use the back arrow to prevent the submenu from opening and gaining focus.</p>
+
+<h3>Key Bindings for Properties</h3>
+<p>There are many properties you might want to bind a key with. To avoid having to define operators for each property, there are generic operators for this purpose:</p>
+
+<p>Operators for adjusting properties begin with wm.context_.</p>
+
+<p>Some of these include:</p>
+
+<p>wm.context_toggle toggle a Boolean property.</p>
+
+<p>wm.context_cycle_enum cycle an enum property forwards or backwards.</p>
+
+<p>wm.context_menu_enum show a pop-up menu for an enum property.</p>
+
+<p>wm.context_pie_enum show a pie menu for an enum property.</p>
+
+<p>wm.context_scale_float scale a number (used for increasing / decreasing brush size for example).</p>
+
+<p>wm.context_toggle_enum toggle between two options of an enum.</p>
+
+<p>wm.context_modal_mouse moving the cursor to interactively change a value.</p>
+
+<p>See bpy.ops.wm for a complete list.</p>
+
+<p>Each of these operators has a data_path setting to reference the property to change.</p>
+
+<p>To find the data_path, basic Python knowledge is needed.</p>
+
+<p>For example, you can use the Python Console to access a Boolean property you wish to map to a key:</p>
+
+<p>bpy.context.object.show_name</p>
+<p>To bind this to a key, add a new keymap item using the operator wm.context_toggle with data_path set to object.show_name (notice the bpy.context prefix is implicit).</p>
+
+<p>See bpy.context for other context attributes.</p>
+
+<p>The Python API documentation can be used to find properties or you may use the Python Console’s auto-complete to inspect available properties.</p>
+
 <h2>Workspaces</h2>
 <p>Workspaces are essentially predefined window layouts. Each Workspace consists of a set of Areas containing Editors, and is geared towards a specific task such as modeling, animating, or scripting. You’ll typically switch between multiple Workspaces while working on a project.</p>
 <img src="https://docs.blender.org/manual/en/5.2/_images/interface_window-system_workspaces_screen.png"alt="">
@@ -230,6 +318,215 @@
 <h3>Filter</h3>
 <h4>By Active Tool</h4>
 <p>Only show brushes applicable for the currently active tool in the asset shelf.</p>
+
+Introduction
+Reference
+
+Menu:
+Edit ‣ Preferences…
+
+Shortcut:
+Ctrl-Comma
+
+This chapter explains how to change Blender’s default configuration with the Preferences editor.
+
+The Blender Preferences contains settings to control how Blender behaves. At the left of the editor, the available options are grouped into sections. A search field above the section list allows filtering preferences by name.
+
+../../_images/editors_preferences_section_interface.webp
+Blender Preferences window.
+
+Managing Preferences
+Default preferences are managed from the ☰ menu in the preferences window.
+
+The following items are available in this menu:
+
+Auto-Save Preferences
+By default changes to preferences are saved on exit, this allows changes to the keymap and Quick Favorites menu to be stored and used between Blender Sessions.
+
+When disabled, a Save Preferences button is shown to manually perform the operation.
+
+Revert to Saved Preferences
+Undoes any unsaved modifications, loading the previously saved state.
+
+Load Factory Preferences
+Completely undo all the modifications made to the preferences, resetting to the state used before making customizations.
+
+Note
+
+After running Load Factory Preferences, auto-save will be disabled for the current session.
+
+This allows you to switch back to the factory settings for testing or following tutorials for example, without the risk of accidentally auto-saving over the preferences you have manually configured.
+
+If you wish to save these as your preferences, run Save Preferences manually.
+
+Note
+
+This only resets the preferences and will not affect settings stored in the startup file. This includes app templates, area locations, and any Blender properties not part of the preferences.
+
+These must be reverted through File ‣ Defaults.
+
+Searching Preferences
+The search field at the top of the Preferences editor filters sections and panels based on the entered text.
+
+Matching categories and panel headers are highlighted, this makes it easy to locate specific settings in large sections.
+
+Ctrl-F focuses the search field.
+
+Alt-F clears the search text.
+
+Note
+
+The Extensions and Add-ons sections are excluded from this filter, as they provide their own search functionality.
+
+Tip
+
+It can be valuable to make a backup of your preferences in the event that you lose your configuration.
+
+See the directory layout section to see where your preferences are stored.
+
+Units
+Reference
+
+Panel:
+Properties ‣ Scene ‣ Units
+
+Unit System
+The unit system to use for user interface controls.
+
+None:
+Use units that have with no relation to the real world, practically this is the same as Metric just without unit names.
+
+Metric:
+Use the metric unit system in this scene.
+
+Imperial:
+Use the imperial unit system in this scene.
+
+Unit Scale
+Scale factor to use when converting between internal units and values displayed in the user interface. This can be changed when modeling at microscopic or astronomical scales.
+
+Note
+
+This only influences the values displayed in the user interface and not how things behave internally. For example, physics simulations don’t take the unit scale into account.
+
+Separate Units
+When using Metric or Imperial, display properties as multiple values. For example, 2.285m will become 2m 28.5cm.
+
+Rotation
+Unit to use for displaying/editing rotation values.
+
+Degrees:
+Use degrees for angles in the user interface.
+
+Radians:
+Use radians for angles in the user interface.
+
+Length
+Unit that will be used to display length values.
+
+Adaptive:
+The unit used for a specific value depends on the magnitude of the value. For example, some values might be displayed as 23cm while others are displayed as 10km.
+
+Meters/Centimeters/Feet:
+A fixed unit that will be used for all lengths in the user interface.
+
+Mass
+See Length.
+
+Time
+See Length.
+
+Temperature
+See Length.
+
+Theme
+Choose between a light or dark theme for Blender. Themes can be customized more in the Preferences. Additional themes can be installed by visiting the Blender Extensions Platform. This is optional, and will require internet access.
+
+Scripting & Extending Blender
+Introduction
+Python is an interpreted, interactive, object-oriented programming language. It incorporates modules, exceptions, dynamic typing, very high-level dynamic data types, and classes. Python combines remarkable power with very clear syntax.
+
+Python scripts are a versatile way to extend Blender functionality. Most areas of Blender can be scripted, including animation, rendering, import and export, object creation and automating repetitive tasks.
+
+To interact with Blender, scripts can make use of the tightly integrated API.
+
+General Information
+Links that are useful while writing scripts:
+
+Python.org – General information about Python.
+
+Blender Python API – Official API documentation. Use this for referencing while writing scripts.
+
+API Introduction – A short introduction to get you started with the API. Contains examples.
+
+Links that deal with distributing your scripts:
+
+Creating Add-ons – Add-ons are used to encapsulate and distribute scripts.
+
+Creating Extensions – Share add-ons on the Blender Extensions platform.
+
+Getting Started
+Manual links
+
+The following links take you from the basics to the more advanced concepts of Python scripting for Blender.
+
+Text Editor
+
+Python Console
+
+Info Editor
+
+External links
+
+Here are external links containing a lot of good information to start learning how to write scripts for Blender:
+
+Python API: Quickstart
+
+CG Cookie: Blender 2.8 Python Scripting Superpowers for Non-Programmers
+
+Olav3D Tutorials: 3D Programming for Beginners Using Python
+
+Blender Artists: Python Support Forum
+
+Extending Blender
+Add-ons
+Add-ons are scripts that enable Blender to gain extra functionality; they can be enabled from the Preferences.
+
+Outside of the Blender executable, there are hundreds of add-ons written by many people:
+
+Officially supported add-ons are bundled with Blender.
+
+Other add-ons are provided by Blender Extensions which aren’t part of official releases. Many of them work reliably and are very useful but are not yet ensured to be stable for release.
+
+See also
+
+See Add-ons for documentation on add-ons included with Blender.
+
+Scripts
+Apart from add-ons, there are several other types of scripts that extend Blender’s functionality:
+
+Modules:
+Utility libraries for import into other scripts.
+
+Presets:
+Settings for Blender’s tools and key configurations.
+
+Startup:
+These files are imported when starting Blender. They define most of Blender’s UI, as well as some additional core operators.
+
+Custom Scripts:
+In contrast to add-ons, they are typically intended for one-time execution via the Text Editor.
+
+Saving your own Scripts
+File Location
+All scripts are loaded from the scripts folder of the local, system and user paths.
+
+You can setup an additional search path for scripts in File Paths Preferences ‣ File Paths.
+
+Installation
+Add-ons are conveniently installed through Blender in the Preferences. Click the Install… button and select the .zip file.
+
+Add-on Tutorial
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>
