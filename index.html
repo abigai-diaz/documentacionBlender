@@ -72,6 +72,138 @@
 <p>When disabled, only the shortcut assignments that have been modified will be exported. This exported file may be thought of as a “keymap delta” instead of a full export.</p>
 
 <p>When enabled, the entire keymap is written.</p>
+<h2>Workspaces</h2>
+<p>Workspaces are essentially predefined window layouts. Each Workspace consists of a set of Areas containing Editors, and is geared towards a specific task such as modeling, animating, or scripting. You’ll typically switch between multiple Workspaces while working on a project.</p>
+<img src="https://docs.blender.org/manual/en/5.2/_images/interface_window-system_workspaces_screen.png"alt="">
+
+<h3>Controls</h3>
+<h5>Tabs</h5>
+<p>Click on the tabs to switch between workspaces. Double-click a tab to rename the workspace.</p>
+
+<h4>Add Workspace</h4>
+<p>Adds a new workspace from a predefined template (e.g. Modeling, Sculpting, Compositing).</p>
+
+<h4>Context Menu RMB</h4>
+
+<h5>Duplicate</h5>
+<p>Makes a copy of the selected workspace, including its screen layout and editors.</p>
+
+<h5>Delete</h5>
+<p>Deletes the selected workspace. If it is the last workspace, it cannot be removed.</p>
+
+<h5>Reorder to Front/Back</h5>
+<p>Moves the workspace tab to the first (front) or last (back) position in the tab list.</p>
+
+<h5>Previous Workspace Ctrl-PageUp</h5>
+<p>Activates the workspace immediately to the left of the current one.</p>
+
+<h5>Next Workspace Ctrl-PageDown</h5>
+<p>Activates the workspace immediately to the right of the current one.</p>
+
+<h5>Delete Other Workspaces</h5>
+<p>Removes all workspaces except the one that was right-clicked on.</p>
+
+<h3>Default Workspaces</h3>
+<p>Blender’s default startup shows the “Layout” workspace in the main area. This workspace is a general workspace to preview your scene and contains the following Editors:</p>
+
+<p>3D Viewport on top left.</p>
+
+<p>Outliner on top right.</p>
+
+<p>Properties on bottom right.</p>
+
+<p>Timeline on bottom left.</p>
+
+<img src="https://docs.blender.org/manual/en/5.2/_images/interface_window-system_workspaces_layout.png"alt="">
+<p>Blender’s ‘Layout’ Workspace with four editors.</p>
+
+<p>3D Viewport (yellow), Outliner (green), Properties (blue) and Timeline (red).</p>
+
+<p>Blender also has several other workspaces added by default:</p>
+
+<h6>Modeling:</h6>
+<p>For modification of geometry by modeling tools.</p>
+
+<h6>Sculpting:</h6>
+<p>For modification of meshes by sculpting tools.</p>
+
+<h6>UV Editing:</h6>
+<p>For mapping of image texture coordinates to 3D surfaces.</p>
+
+<h6>Texture Paint:</h6>
+<p>For coloring image textures in the 3D Viewport.</p>
+
+<h6>Shading:</h6>
+<p>For specifying material properties for rendering.</p>
+
+<h6>Animation:</h6>
+<p>For making properties of objects dependent on time.</p>
+
+<h6>Rendering:</h6>
+<p>For viewing and analyzing rendering results.</p>
+
+<h6>Compositing:</h6>
+<p>For combining and post-processing of images and rendering information.</p>
+
+<h6>Geometry Nodes:</h6>
+<p>For procedural modeling using Geometry Nodes.</p>
+
+<h6>Scripting:</h6>
+<p>For interacting with Blender’s Python API and writing scripts.</p>
+
+<h3>Additional Workspaces</h3>
+<p>Blender has a couple additional Workspaces to choose from when adding a new Workspace:</p>
+
+<h4>2D Animation</h4>
+
+<h6>2D Animation:</h6>
+<p>General workspace to work with Grease Pencil.</p>
+
+<h6>2D Full Canvas:</h6>
+<p>Similar to “2D Animation” but contains a larger canvas.</p>
+
+<h4>VFX</h4>
+
+<h6>Masking:</h6>
+<p>For creating 2D masks for compositing or video editing.</p>
+
+<h6>Motion Tracking:</h6>
+<p>For calculating camera motion and stabilizing video footage.</p>
+
+<h4>Video Editing</h4>
+
+<h6>Video Editing:</h6>
+<p>For sequencing together media into one video.</p>
+
+<h4>Save and Override</h4>
+<p>The workspaces are saved in the blend-file. When you open a file, enabling Load UI in the File Browser indicates that Blender should use the file’s screen layout rather than the current one.</p>
+
+<p>A custom set of workspaces can be saved as a part of the Defaults.</p>
+
+<h4>Workspace Settings</h4>
+<h5>Reference</h5>
+
+<h6>Editor:</h6>
+<p>Properties Editor</p>
+
+<h6>Panel:</h6>
+<p>Tool tab ‣ Workspace</p>
+
+<h5>Pin Scene</h5>
+<p>When enabled, the current workspace will remember the currently selected scene. Then, whenever you activate the workspace, it’ll automatically switch back to that scene.</p>
+
+<h5>Mode</h5>
+<p>Switch to this Mode when activating the workspace.</p>
+
+<h5>Sequencer Scene</h5>
+<p>The scene containing the edit that is used by the video sequence editor. See Sequencer Scene.</p>
+
+<h5>Sync Scene Time</h5>
+<p>Sync the active scene and time based on the current scene strip in the video sequence editor. See Sequencer Scene.</p>
+
+<h5>Filter Add-ons</h5>
+<p>Determines which add-ons are enabled in the active workspace. When unchecked, the global add-ons will be used. When checked, you can enable individual add-ons in the list below.</p>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>
 </html>
