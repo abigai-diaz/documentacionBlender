@@ -319,214 +319,210 @@
 <h4>By Active Tool</h4>
 <p>Only show brushes applicable for the currently active tool in the asset shelf.</p>
 
-Introduction
-Reference
+<h2>Preferences</h2>
+<h2>Introduction</h2>
 
-Menu:
-Edit ‣ Preferences…
+<h4>Reference</h4>
+<h5>Menu:</h5>
+<p>Edit ‣ Preferences…</p>
+<h5>Shortcut:</h5>
+<p>Ctrl-Comma</p>
 
-Shortcut:
-Ctrl-Comma
+<p>This chapter explains how to change Blender’s default configuration with the Preferences editor.</p>
 
-This chapter explains how to change Blender’s default configuration with the Preferences editor.
+<p>The Blender Preferences contains settings to control how Blender behaves. At the left of the editor, the available options are grouped into sections. A search field above the section list allows filtering preferences by name.</p>
 
-The Blender Preferences contains settings to control how Blender behaves. At the left of the editor, the available options are grouped into sections. A search field above the section list allows filtering preferences by name.
+<img src="https://docs.blender.org/manual/en/5.2/_images/editors_preferences_section_interface.webp"alt="">
+<p>Blender Preferences window.</p>
 
-../../_images/editors_preferences_section_interface.webp
-Blender Preferences window.
+<h3>Managing Preferences</h3>
+<p>Default preferences are managed from the ☰ menu in the preferences window.</p>
 
-Managing Preferences
-Default preferences are managed from the ☰ menu in the preferences window.
+<p>The following items are available in this menu:</p>
 
-The following items are available in this menu:
+<h5>Auto-Save Preferences</h5>
+<p>By default changes to preferences are saved on exit, this allows changes to the keymap and Quick Favorites menu to be stored and used between Blender Sessions.</p>
 
-Auto-Save Preferences
-By default changes to preferences are saved on exit, this allows changes to the keymap and Quick Favorites menu to be stored and used between Blender Sessions.
+<p>When disabled, a Save Preferences button is shown to manually perform the operation.</p>
 
-When disabled, a Save Preferences button is shown to manually perform the operation.
+<h5>Revert to Saved Preferences</h5>
+<p>Undoes any unsaved modifications, loading the previously saved state.</p>
 
-Revert to Saved Preferences
-Undoes any unsaved modifications, loading the previously saved state.
+<h5>Load Factory Preferences</h5>
+<p>Completely undo all the modifications made to the preferences, resetting to the state used before making customizations.</p>
 
-Load Factory Preferences
-Completely undo all the modifications made to the preferences, resetting to the state used before making customizations.
+<h6>Note</h6>
 
-Note
+<p>After running Load Factory Preferences, auto-save will be disabled for the current session.</p>
 
-After running Load Factory Preferences, auto-save will be disabled for the current session.
+<p>This allows you to switch back to the factory settings for testing or following tutorials for example, without the risk of accidentally auto-saving over the preferences you have manually configured.</p>
 
-This allows you to switch back to the factory settings for testing or following tutorials for example, without the risk of accidentally auto-saving over the preferences you have manually configured.
+<p>If you wish to save these as your preferences, run Save Preferences manually.</p>
 
-If you wish to save these as your preferences, run Save Preferences manually.
+<h6>Note</h6>
 
-Note
+<p>This only resets the preferences and will not affect settings stored in the startup file. This includes app templates, area locations, and any Blender properties not part of the preferences.</p>
 
-This only resets the preferences and will not affect settings stored in the startup file. This includes app templates, area locations, and any Blender properties not part of the preferences.
+<p>These must be reverted through File ‣ Defaults.</p>
 
-These must be reverted through File ‣ Defaults.
+<h3>Searching Preferences</h3>
+<p>The search field at the top of the Preferences editor filters sections and panels based on the entered text.</p>
 
-Searching Preferences
-The search field at the top of the Preferences editor filters sections and panels based on the entered text.
+<p>Matching categories and panel headers are highlighted, this makes it easy to locate specific settings in large sections.</p>
 
-Matching categories and panel headers are highlighted, this makes it easy to locate specific settings in large sections.
+<p>Ctrl-F focuses the search field.</p>
 
-Ctrl-F focuses the search field.
+<p>Alt-F clears the search text.</p>
 
-Alt-F clears the search text.
+<h6>Note</h6>
 
-Note
+<p>The Extensions and Add-ons sections are excluded from this filter, as they provide their own search functionality.</p>
 
-The Extensions and Add-ons sections are excluded from this filter, as they provide their own search functionality.
+<h6>Tip</h6>
 
-Tip
+<p>It can be valuable to make a backup of your preferences in the event that you lose your configuration.</p>
 
-It can be valuable to make a backup of your preferences in the event that you lose your configuration.
+<p>See the directory layout section to see where your preferences are stored.</p>
 
-See the directory layout section to see where your preferences are stored.
+<h3>Units</h3>
 
-Units
-Reference
+<h4>Reference</h4>
+<h6>Panel:</h6>
+<p>Properties ‣ Scene ‣ Units</p>
 
-Panel:
-Properties ‣ Scene ‣ Units
+<h3>Unit System</h3>
+<p>The unit system to use for user interface controls.</p>
 
-Unit System
-The unit system to use for user interface controls.
+<h6>None:</h6>
+<p>Use units that have with no relation to the real world, practically this is the same as Metric just without unit names.</p>
 
-None:
-Use units that have with no relation to the real world, practically this is the same as Metric just without unit names.
+<h5>Metric:</h5>
+<p>Use the metric unit system in this scene.</p>
 
-Metric:
-Use the metric unit system in this scene.
+<h5>Imperial:</h5>
+<p>Use the imperial unit system in this scene.</p>
 
-Imperial:
-Use the imperial unit system in this scene.
+<h5>Unit Scale</h5>
+<p>Scale factor to use when converting between internal units and values displayed in the user interface. This can be changed when modeling at microscopic or astronomical scales.</p>
 
-Unit Scale
-Scale factor to use when converting between internal units and values displayed in the user interface. This can be changed when modeling at microscopic or astronomical scales.
+<h6>Note</h6>
 
-Note
+<p>This only influences the values displayed in the user interface and not how things behave internally. For example, physics simulations don’t take the unit scale into account.</p>
 
-This only influences the values displayed in the user interface and not how things behave internally. For example, physics simulations don’t take the unit scale into account.
+<h4>Separate Units</h4>
+<p>When using Metric or Imperial, display properties as multiple values. For example, 2.285m will become 2m 28.5cm.</p>
 
-Separate Units
-When using Metric or Imperial, display properties as multiple values. For example, 2.285m will become 2m 28.5cm.
+<h4>Rotation</h4>
+<p>Unit to use for displaying/editing rotation values.</p>
 
-Rotation
-Unit to use for displaying/editing rotation values.
+<h4>Degrees:</h4>
+<p>Use degrees for angles in the user interface.</p>
 
-Degrees:
-Use degrees for angles in the user interface.
+<h4></h4>
+<p>Use radians for angles in the user interface.</p>
 
-Radians:
-Use radians for angles in the user interface.
+<h4>Length</h4>
+<p>Unit that will be used to display length values.</p>
 
-Length
-Unit that will be used to display length values.
+<h4>Adaptive:</h4>
+<p>The unit used for a specific value depends on the magnitude of the value. For example, some values might be displayed as 23cm while others are displayed as 10km.</p>
 
-Adaptive:
-The unit used for a specific value depends on the magnitude of the value. For example, some values might be displayed as 23cm while others are displayed as 10km.
+<h5>Meters/Centimeters/Feet:</h5>
+<p>A fixed unit that will be used for all lengths in the user interface.</p>
 
-Meters/Centimeters/Feet:
-A fixed unit that will be used for all lengths in the user interface.
+<h4>Mass</h4>
+<p>See Length.</p>
 
-Mass
-See Length.
+<h4>Time</h4>
+<p>See Length.</p>
 
-Time
-See Length.
+<h4>Temperature</h4>
+<p>See Length.</p>
 
-Temperature
-See Length.
+<h2>Theme</h2>
+<p>Choose between a light or dark theme for Blender. Themes can be customized more in the Preferences. Additional themes can be installed by visiting the Blender Extensions Platform. This is optional, and will require internet access.</p>
 
-Theme
-Choose between a light or dark theme for Blender. Themes can be customized more in the Preferences. Additional themes can be installed by visiting the Blender Extensions Platform. This is optional, and will require internet access.
+<h2>Scripting & Extending Blender</h2>
 
-Scripting & Extending Blender
-Introduction
-Python is an interpreted, interactive, object-oriented programming language. It incorporates modules, exceptions, dynamic typing, very high-level dynamic data types, and classes. Python combines remarkable power with very clear syntax.
+<h3>Introduction</h3>
+<p>Python is an interpreted, interactive, object-oriented programming language. It incorporates modules, exceptions, dynamic typing, very high-level dynamic data types, and classes. Python combines remarkable power with very clear syntax.</p>
 
-Python scripts are a versatile way to extend Blender functionality. Most areas of Blender can be scripted, including animation, rendering, import and export, object creation and automating repetitive tasks.
+<p>Python scripts are a versatile way to extend Blender functionality. Most areas of Blender can be scripted, including animation, rendering, import and export, object creation and automating repetitive tasks.</p>
+<p>To interact with Blender, scripts can make use of the tightly integrated API.</p>
 
-To interact with Blender, scripts can make use of the tightly integrated API.
+<h4>General Information</h4>
+<p>Links that are useful while writing scripts:</p>
 
-General Information
-Links that are useful while writing scripts:
+<p>Python.org – General information about Python.</p>
 
-Python.org – General information about Python.
+<p>Blender Python API – Official API documentation. Use this for referencing while writing scripts.</p>
 
-Blender Python API – Official API documentation. Use this for referencing while writing scripts.
+<p>API Introduction – A short introduction to get you started with the API. Contains examples.</p>
 
-API Introduction – A short introduction to get you started with the API. Contains examples.
+<p>Links that deal with distributing your scripts:</p>
 
-Links that deal with distributing your scripts:
+<p>Creating Add-ons – Add-ons are used to encapsulate and distribute scripts.</p>
 
-Creating Add-ons – Add-ons are used to encapsulate and distribute scripts.
+<p>Creating Extensions – Share add-ons on the Blender Extensions platform.</p>
 
-Creating Extensions – Share add-ons on the Blender Extensions platform.
+<h4>Getting Started</h4>
+<h5>Manual links</h5>
 
-Getting Started
-Manual links
+<p>The following links take you from the basics to the more advanced concepts of Python scripting for Blender.</p>
 
-The following links take you from the basics to the more advanced concepts of Python scripting for Blender.
+<p>Text Editor</p>
 
-Text Editor
+<p>Text Editor</p>>
 
-Python Console
+<p>Info Editor</p>
 
-Info Editor
+<h5>External links</h5>
 
-External links
+<p>Here are external links containing a lot of good information to start learning how to write scripts for Blender:</p>
 
-Here are external links containing a lot of good information to start learning how to write scripts for Blender:
+<p>Python API: Quickstart</p>
 
-Python API: Quickstart
+<p>CG Cookie: Blender 2.8 Python Scripting Superpowers for Non-Programmers</p>
 
-CG Cookie: Blender 2.8 Python Scripting Superpowers for Non-Programmers
+<p>Olav3D Tutorials: 3D Programming for Beginners Using Python</p>
 
-Olav3D Tutorials: 3D Programming for Beginners Using Python
+<p>Blender Artists: Python Support Forum</p>
 
-Blender Artists: Python Support Forum
+<H3>Extending Blender</H3>
+<h4>Add-ons</h4>
+<p>Add-ons are scripts that enable Blender to gain extra functionality; they can be enabled from the Preferences.</p>
 
-Extending Blender
-Add-ons
-Add-ons are scripts that enable Blender to gain extra functionality; they can be enabled from the Preferences.
+<p>Outside of the Blender executable, there are hundreds of add-ons written by many people:</p>
 
-Outside of the Blender executable, there are hundreds of add-ons written by many people:
+<p>Officially supported add-ons are bundled with Blender.</p>
 
-Officially supported add-ons are bundled with Blender.
+<p>Other add-ons are provided by Blender Extensions which aren’t part of official releases. Many of them work reliably and are very useful but are not yet ensured to be stable for release.</p>
 
-Other add-ons are provided by Blender Extensions which aren’t part of official releases. Many of them work reliably and are very useful but are not yet ensured to be stable for release.
+<h3>Scripts</h3>
+<p>Apart from add-ons, there are several other types of scripts that extend Blender’s functionality:</p>
 
-See also
+<h6>Modules:</h6>
+<p>Utility libraries for import into other scripts.</p>
 
-See Add-ons for documentation on add-ons included with Blender.
+<h6>Presets:</h6>
+<p>Settings for Blender’s tools and key configurations.</p>
 
-Scripts
-Apart from add-ons, there are several other types of scripts that extend Blender’s functionality:
+<h6>Startup:</h6>
+<p>These files are imported when starting Blender. They define most of Blender’s UI, as well as some additional core operators.</p>
 
-Modules:
-Utility libraries for import into other scripts.
+<h6>Custom Scripts:</h6>
+<p>In contrast to add-ons, they are typically intended for one-time execution via the Text Editor.</p>
 
-Presets:
-Settings for Blender’s tools and key configurations.
+<h3>Saving your own Scripts</h3>
+<h4>File Location</h4>
+<p>All scripts are loaded from the scripts folder of the local, system and user paths.</p>
 
-Startup:
-These files are imported when starting Blender. They define most of Blender’s UI, as well as some additional core operators.
+<p>You can setup an additional search path for scripts in File Paths Preferences ‣ File Paths.</p>
 
-Custom Scripts:
-In contrast to add-ons, they are typically intended for one-time execution via the Text Editor.
+<h4>Installation</h4>
+<p>Add-ons are conveniently installed through Blender in the Preferences. Click the Install… button and select the .zip file.</p>
 
-Saving your own Scripts
-File Location
-All scripts are loaded from the scripts folder of the local, system and user paths.
-
-You can setup an additional search path for scripts in File Paths Preferences ‣ File Paths.
-
-Installation
-Add-ons are conveniently installed through Blender in the Preferences. Click the Install… button and select the .zip file.
-
-Add-on Tutorial
+<h2>Add-on Tutorial</h2>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>
